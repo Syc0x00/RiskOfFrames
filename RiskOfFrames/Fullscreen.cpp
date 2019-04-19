@@ -46,8 +46,7 @@ bool Fullscreen::Toggle(bool toggle) {
 		return false;
 	}
 
-	Sleep(10);
-	if (FAILED(swapChain->ResizeBuffers(scd.BufferCount, scd.BufferDesc.Width, scd.BufferDesc.Height, scd.BufferDesc.Format, scd.Flags))) {
+	if (FAILED(swapChain->ResizeBuffers(0, 0, 0, DXGI_FORMAT_UNKNOWN, DXGI_SWAP_CHAIN_FLAG_ALLOW_MODE_SWITCH))) {
 		Console::Warn("ResizeBuffers() failed");
 		return false;
 	}
